@@ -1,0 +1,65 @@
+[
+  {
+    "id": "codigo-eleitoral-atual-1c4abe0d",
+    "title": "CODIGO ELEITORAL - ATUAL",
+    "source_sha256": "1c4abe0d92a4b8bf8b7b42c53413dfc310cc212b8becee3705d177e8542f1a2d",
+    "page_count": 46,
+    "currency": "Não verificada; o nome ATUAL/ATUALIZADO não comprova vigência."
+  },
+  {
+    "id": "constituicao-atualizado-d7ab504e",
+    "title": "CONSTITUIÇÃO - ATUALIZADO",
+    "source_sha256": "d7ab504eabe3e8568e34b1f14edf36492e7f24f47622637291a203e8d5c5b10e",
+    "page_count": 62,
+    "currency": "Não verificada; o nome ATUAL/ATUALIZADO não comprova vigência."
+  },
+  {
+    "id": "codigo-de-processo-maconico-atual-2d7632ea",
+    "title": "CÓDIGO DE PROCESSO MAÇÔNICO - ATUAL",
+    "source_sha256": "2d7632eaa41d8775d71447d5055543de9f3296f3edf0dca60d39b135efc7f85d",
+    "page_count": 45,
+    "currency": "Não verificada; o nome ATUAL/ATUALIZADO não comprova vigência."
+  },
+  {
+    "id": "codigo-disciplinar-atual-7e63e241",
+    "title": "CÓDIGO DISCIPLINAR - ATUAL",
+    "source_sha256": "7e63e241cadc0d0719b55161f01e1e7359925729af0e44cb1a00f7592e85b2f3",
+    "page_count": 20,
+    "currency": "Não verificada; o nome ATUAL/ATUALIZADO não comprova vigência."
+  },
+  {
+    "id": "regimento-interno-2024-tem-gope-com-capa-fad55015",
+    "title": "REGIMENTO INTERNO - 2024 - TEM-GOPE COM CAPA",
+    "source_sha256": "fad5501540a3a46ded4f7c071640725065c6bf6bbd3b8839b7390c7476dbd025",
+    "page_count": 23,
+    "currency": "Não verificada; o nome ATUAL/ATUALIZADO não comprova vigência."
+  },
+  {
+    "id": "regimento-interno-pael-9c65d7fb",
+    "title": "REGIMENTO INTERNO - PAEL",
+    "source_sha256": "9c65d7fbce66e816ebbb1f9b93e4b4065d7b589286f2511737de7c4bab3f17a7",
+    "page_count": 48,
+    "currency": "Não verificada; o nome ATUAL/ATUALIZADO não comprova vigência."
+  },
+  {
+    "id": "regimento-interno-tce-gpope-80189962",
+    "title": "REGIMENTO INTERNO - TCE-GPOPE",
+    "source_sha256": "80189962b68feb8886ce9d765988618a9fe07201191868d209f57596519fae67",
+    "page_count": 21,
+    "currency": "Não verificada; o nome ATUAL/ATUALIZADO não comprova vigência."
+  },
+  {
+    "id": "rgf-atualizado-26cd43f5",
+    "title": "RGF - ATUALIZADO",
+    "source_sha256": "26cd43f5e92edefe7cea29d8141f5fb0acb1e9d413b6cb23f670b7126aa12ba9",
+    "page_count": 109,
+    "currency": "Não verificada; o nome ATUAL/ATUALIZADO não comprova vigência."
+  },
+  {
+    "id": "tjm-gope-regimento-interno-2025-8516b329",
+    "title": "TJM-GOPE-REGIMENTO INTERNO - 2025",
+    "source_sha256": "8516b3293407f31f82417d9fd23a15b16eceb9a0f18d7d79eb40cf1cc030cb29",
+    "page_count": 37,
+    "currency": "Não verificada; o nome ATUAL/ATUALIZADO não comprova vigência."
+  }
+]
