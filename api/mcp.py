@@ -42,7 +42,7 @@ def ler_pagina(document_id: Annotated[str,Field(min_length=1,max_length=100)], p
  """Read the extracted text of one exact PDF page from the bundled corpus. Use a document_id returned by listar_documentos or buscar_normas. Includes OCR warnings, source hash and citation. Does not read arbitrary files or URLs."""
  doc=DOCS.get(document_id)
  if doc is None:raise ValueError('Documento desconhecido. Use listar_documentos.')
- if page>doc['page_count']:raise ValueError(f"Página fora do intervalo 1–{doc['page_count']}.")
+ if page<1 or page>doc['page_count']:raise ValueError(f"Página fora do intervalo 1–{doc['page_count']}.")
  return page_result(doc,doc['pages'][page-1])
 
 @mcp.tool(annotations=ANNOTATIONS)
