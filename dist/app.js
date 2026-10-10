@@ -1,0 +1,6 @@
+document.documentElement.classList.add('js');
+const toggle=document.querySelector('.menu-toggle');
+const nav=document.querySelector('.nav-links');
+if(toggle&&nav){toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open);});nav.addEventListener('click',e=>{if(e.target.closest('a')){toggle.setAttribute('aria-expanded','false');nav.classList.remove('open');}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});}
+let messageTimer;
+document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{const text=document.getElementById(button.dataset.copy).textContent;const status=document.querySelector('#copy-status');try{await navigator.clipboard.writeText(text);status.textContent='Pergunta copiada. Cole na conversa com o GOB-PE LEX.';}catch{const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(document.getElementById(button.dataset.copy));selection.removeAllRanges();selection.addRange(range);status.textContent='Texto selecionado. Use a opção Copiar do seu dispositivo.';}clearTimeout(messageTimer);messageTimer=setTimeout(()=>{status.textContent='';},6000);}));
