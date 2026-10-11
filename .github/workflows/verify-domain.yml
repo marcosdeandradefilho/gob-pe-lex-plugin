@@ -1,0 +1,44 @@
+name: Verify OpenAI domain challenge
+
+on:
+  push:
+    branches: [fix/domain-verification-challenge-20261011]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check public challenge response byte-for-byte
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          from urllib.error import HTTPError, URLError
+          import hashlib
+          url='https://gob-pe-lex-plugin.vercel.app/.well-known/openai-apps-challenge'
+          expected=Path('dist/.well-known/openai-apps-challenge').read_bytes()
+          try:
+              req=Request(url,headers={'Accept':'text/plain','User-Agent':'GOB-PE-LEX-domain-verification-test'})
+              with urlopen(req,timeout=25) as response:
+                  body=response.read()
+                  print('status:',response.status)
+                  print('final_url:',response.url)
+                  print('content_type:',response.headers.get('Content-Type'))
+                  print('bytes:',len(body),'expected_bytes:',len(expected))
+                  print('actual_sha256:',hashlib.sha256(body).hexdigest())
+                  print('expected_sha256:',hashlib.sha256(expected).hexdigest())
+                  print('first_response_chars:',repr(body[:120]))
+                  assert response.status==200
+                  assert body==expected, 'Challenge response does not match stored token'
+          except HTTPError as e:
+              print('HTTP error:',e.code,'headers:',dict(e.headers),'body:',repr(e.read()[:250]))
+              raise
+          except URLError as e:
+              print('Request error:',str(e))
+              raise
+          PY
