@@ -8,6 +8,10 @@ class CorpusTests(unittest.TestCase):
   self.assertTrue(a['results']);self.assertEqual(a['results'],b['results'])
   for hit in a['results']:
    page=ler_pagina(hit['document_id'],hit['page']);self.assertIn(hit['excerpt'],page['text']);self.assertEqual(hit['source_sha256'],page['source_sha256'])
+ def test_substantive_pages_rank_ahead_of_table_of_contents(self):
+  pages=[hit['page'] for hit in buscar_normas('admissão','rgf-atualizado-26cd43f5',limit=5)['results']]
+  self.assertIn(12,pages)
+  self.assertNotIn(4,pages)
  def test_no_fabricated_results(self):self.assertEqual(buscar_normas('zzzxxyyqnonexistent')['results'],[])
  def test_boundaries(self):
   for doc,page in [('../secret',1),('rgf-atualizado-26cd43f5',110)]:
