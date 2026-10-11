@@ -58,6 +58,10 @@ def buscar_normas(query:Annotated[str,Field(min_length=2,max_length=300)],docume
   if not matched:continue
   score=sum(math.log(1+(len(ROWS)-FREQUENCY[t]+.5)/(FREQUENCY[t]+.5))*counts[t]*2.2/(counts[t]+1.2*(.25+.75*length/AVG)) for t in matched)
   score*=len(matched)/len(terms)
+  # TOC leaders (long dotted lines) should not outrank substantive legal provisions.
+  # Retain index pages as searchable matches: only reduce their ranking.
+  if sum('.....' in line for line in page['text'].splitlines())>=7:
+   score*=.2
   ranked.append((score,doc,page,matched))
  ranked.sort(key=lambda row:(-row[0],row[1]['id'],row[2]['page']))
  results=[]
