@@ -2,7 +2,10 @@ name: Verify OpenAI domain challenge
 
 on:
   push:
-    branches: [fix/domain-verification-challenge-20261011]
+    branches: [main]
+    paths:
+      - 'dist/.well-known/openai-apps-challenge'
+      - '.github/workflows/verify-domain.yml'
   workflow_dispatch:
 
 permissions:
