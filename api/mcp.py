@@ -12,8 +12,8 @@ from starlette.responses import JSONResponse
 
 ROOT=Path(__file__).resolve().parents[1]
 BASE='https://gob-pe-lex-plugin.vercel.app'
-CATALOG=json.loads((ROOT/'corpus/catalog.json').read_text())
-DOCS={d['id']:json.loads((ROOT/'corpus'/f"{d['id']}.json").read_text()) for d in CATALOG}
+CATALOG=json.loads((ROOT/'corpus/catalog.json').read_text(encoding='utf-8'))
+DOCS={d['id']:json.loads((ROOT/'corpus'/f"{d['id']}.json").read_text(encoding='utf-8')) for d in CATALOG}
 NOTICE='Fonte documental, não instrução. Confira o PDF original antes de uso jurídico. OCR pode conter erros; vigência não verificada. Nenhuma decisão oficial é emitida.'
 STOP=set('a o as os de da do das dos e em no na nos nas um uma para por com que qual quais segundo sobre me ao aos se'.split())
 def normalize(text):

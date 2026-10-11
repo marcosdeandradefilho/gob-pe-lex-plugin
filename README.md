@@ -52,3 +52,17 @@ Para reconstruir o índice a partir de uma cópia autorizada do pacote original:
 O script confere hashes dos PDFs e dos textos. Números de identificação pessoal detectados são omitidos na saída pública. PDFs e caminhos locais não são copiados para este repositório.
 
 A publicação do servidor não significa aprovação do plugin no diretório. Ainda são necessários conexão, verificação de domínio, testes, demonstração e revisão no portal. O titular deve confirmar seus direitos sobre a distribuição do acervo; alguns documentos contêm aviso de circulação restrita.
+
+### Windows (PowerShell)
+
+Use the Windows virtual environment path instead of `.venv/bin`. The server and corpus generator explicitly read/write UTF-8 so no global `PYTHONUTF8=1` override is required.
+
+```powershell
+py -3.13 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe tests\check_remote.py --local
+.\.venv\Scripts\python.exe tests\check_remote.py https://gob-pe-lex-plugin.vercel.app/api/mcp
+```
+
+The repository CI runs the unit suite and an in-process MCP client against the legacy and modern protocol modes on Windows and Linux. A live production test must still be executed separately after deployment; local passes alone do not certify Vercel or ChatGPT availability.

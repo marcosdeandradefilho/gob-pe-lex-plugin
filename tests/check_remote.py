@@ -1,5 +1,9 @@
 """Exercise a real server using the official MCP client, in both protocol modes."""
 import asyncio,json,sys
+from pathlib import Path
+
+# Make direct script invocation work from any working directory on Windows/Linux.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from contextlib import AsyncExitStack
 import httpx2
 from mcp.client.streamable_http import streamable_http_client
